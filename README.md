@@ -14,6 +14,7 @@ Test on Amazon EKS (**STILL IN TESTING**)
  4. Make sure you have the [`aws-iam-authenticator` binary ready](https://github.com/kubernetes-sigs/aws-iam-authenticator).
  5. Run `terraform output config-map-auth` and save the output to a `<filename>.yml`.
     NOTE: make sure it's correctly formatted. See an example of the correct format in `eks/terraform/config-map-auth.yaml.example`.
+ 5. (optional) You might want to add the cluster context to you current kubconfig with 'aws eks update-kubeconfig --name eks-suse-cap'
  6. Run `kubectl apply -f <filename>.yml` to create a configmap to connect to your EKS cluster.
  7. Check the health of your workers with `kubectl get nodes`.
  7. Have a look at [this guide](https://github.com/SUSE/scf/wiki/Deployment-on-Amazon-EKS).
