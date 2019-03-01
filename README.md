@@ -1,11 +1,9 @@
-# Configuration and sample application for SUSE CAP test
+# EKS on AWS using Terraform
 
-Test on SUSE Openstack Cloud
-====
- 1. Go to folder `ecp`
- 2. Follow this [guide](https://github.com/SUSE/cloudfoundry/wiki/Setup-CAP-on-CaaSP-on-ECP) and the [official documentation](https://www.suse.com/documentation/cloud-application-platform-1/book_cap_deployment/data/cha_cap_install-minimal.html)
+This recipe automates setup of an Elastic Kubernetes Service (EKS) on AWS. It was created to simplify deployment of [SUSE Cloud Foundry](https://github.com/SUSE/scf) which takes Kubernetes as a foundation. 
 
-Test on Amazon EKS (**STILL IN TESTING**)
+:warning: Please note the SCF specific security groups in `eks/terraform/eks-worker.tf`
+
 ===
  1. Go to folder `eks/terraform`
  2. Run `terraform apply` to create the cluster in AWS
@@ -16,4 +14,9 @@ Test on Amazon EKS (**STILL IN TESTING**)
     NOTE: make sure it's correctly formatted. See an example of the correct format in `eks/terraform/config-map-auth.yaml.example`.
  6. Run `kubectl apply -f <filename>.yml` to create a configmap to connect to your EKS cluster.
  7. Check the health of your workers with `kubectl get nodes`.
- 7. Have a look at [this guide](https://github.com/SUSE/scf/wiki/Deployment-on-Amazon-EKS).
+ 
+ Optional: 
+ 8. Have a look at [this guide](https://github.com/SUSE/scf/wiki/Deployment-on-Amazon-EKS) for setting up SUSE Cloud Application Platform on top of it.
+
+
+Don't hesistate to contribute or open issues if configuration becomes outdated or is no longer functional!
